@@ -24,7 +24,7 @@ def get_gspread_client():
         if not creds_json:
             raise ValueError("No Google Credentials found!")
         creds_dict = json.loads(creds_json)
-        creds = ServiceAccountCredentials.from_json_dict(creds_dict, scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
     return gspread.authorize(creds)
 
 try:
